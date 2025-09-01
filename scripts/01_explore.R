@@ -1,15 +1,13 @@
 # scripts/01_explore.R
 # Exploración mínima con here + tidyverse sobre los .rds de palmerpenguins
 
-pacman::p_load(here, tidyverse, janitor, ggplot2)
-
 # Rutas a los datos (provenientes del repo clonado)
 path_raw  <- here("data", "raw", "penguins_raw.rds")
 path_proc <- here("data", "raw", "penguins.rds")
 
 # Cargar .rds (no requiere paquetes extra)
-penguins_raw  <- readRDS(path_raw)  %>% clean_names()
-penguins_proc <- readRDS(path_proc) %>% clean_names()
+penguins_raw  <- read_rds(path_raw)  %>% clean_names()
+penguins_proc <- read_rds(path_proc) %>% clean_names()
 
 # Tabla de ejemplo (conteo por especie y isla en la versión procesada)
 tabla_resumen <- penguins_proc %>%
